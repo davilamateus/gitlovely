@@ -1,0 +1,21 @@
+.pagination{
+    display: flex;
+    width: 200px;
+    button{
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: rgb(119, 119, 119);
+        transition: 0.3s;
+        &:hover{
+            color: rgb(0, 0, 0);
+
+        }
+    }
+
+}
+
+.not-found{
+    width: 100vw;
+    text-align: center;
+}

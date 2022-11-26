@@ -1,0 +1,24 @@
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+}
+
+.user-name a {
+  color: #B1B1B1;
+  text-decoration: none;
+}
+
+.followers, .followings, .repositories {
+  text-align: center;
+}
+.followers span, .followings span, .repositories span {
+  font-size: 14px;
+  color: #B1B1B1;
+}/*# sourceMappingURL=userProfile.css.map */

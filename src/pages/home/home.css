@@ -1,0 +1,33 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-search {
+  text-align: center;
+}
+
+.favourites {
+  cursor: pointer;
+}
+.favourites button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #DF6460;
+  color: #DF6460;
+  padding: 8px 16px;
+  border-radius: 32px;
+  transition: 0.4s;
+  width: 150px;
+}
+.favourites button img {
+  height: 12px;
+  margin-right: 12px;
+}
+.favourites button:hover {
+  background-color: #DF6460;
+  color: #fff;
+}
+.favourites button:hover img {
+  filter: brightness(3);
+}/*# sourceMappingURL=home.css.map */

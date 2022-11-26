@@ -1,0 +1,43 @@
+.repositorie-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 280px;
+    padding: 16px;
+    box-shadow: 4px 5px 10px rgba(83, 83, 83, 0.154);
+    border-radius: 16px;
+    margin-bottom: 32px;
+}
+
+.repositorie-description{
+    display: flex;
+    padding: 16px 0;
+    div{
+        margin: 8px;
+        text-align: center;
+        span{
+            color: #B1B1B1;
+        }
+    }
+}
+
+.repositorie-header{
+    span{
+        font-size: 14px;
+        color: #B1B1B1;
+    }
+}
+
+.view-more{
+    padding: 12px 16px;
+    background-color: #58BEC3;
+    border: none;
+    border-radius: 32px;
+    color: #fff;
+    box-shadow: 2px 3px 0 0 #37817a;
+    transition: 0.3s;
+    &:hover{
+        box-shadow: 0px 0px 0 0 #37817a;
+    }
+}
