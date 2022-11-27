@@ -8,7 +8,7 @@ import App from './App';
 
 it('should search a user call "davilamateus"', async () => {
 
-    const { getByText, getByPlaceholderText } = render(<App />)
+    render(<App />)
 
     const input = screen.getByPlaceholderText('Find a user here…');
     const btnSearch = screen.getByText('Search');
@@ -20,14 +20,14 @@ it('should search a user call "davilamateus"', async () => {
 
     await waitFor(() => {
         expect(screen.getByText('https://github.com/davilamateus')).toBeInTheDocument()
-    }, { timeout: 1000 });
+    }, { timeout: 1000, interval:5 });
 
 });
 
 
 it('Should click on View Profile of davilamateus and show the repositorie "lab_prevencao"', async () => {
 
-    const { getByText, getByPlaceholderText, getByRole } = render(<App />)
+    render(<App />)
 
     const input = screen.getByPlaceholderText('davilamateus');
     const btnSearch = screen.getByText('Search');
@@ -39,17 +39,18 @@ it('Should click on View Profile of davilamateus and show the repositorie "lab_p
 
     const clickOnUserRepositories = () => {
         userEvent.click(screen.getByText('davilamateus'));
-
+        
     }
-
-
+    
     await waitFor(() => {
         clickOnUserRepositories()
     }, { timeout: 2000 });
-
+    
+    render(<App/>)
+    
     await waitFor(() => {
         expect(screen.getByText('lab_prevencao')).toBeInTheDocument();
-    }, { timeout: 4000 });
+    }, { timeout: 5000 , interval:10});
 
 
 });

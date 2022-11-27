@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import Api from '../../../../Api/Api'
-import RepositoriesCard from '../repositoriesCard/RepositoriesCard'
-import './RepositoriesList.css'
+import React, { useEffect, useState } from 'react';
+import Api from '../../../../api/Api';
+import RepositoriesCard from '../repositoriesCard/RepositoriesCard';
+import './RepositoriesList.css';
 
 const Repositories = ({user}) => {
 
-    const [repositories,setRepositories] = useState([])
+    const [repositories,setRepositories] = useState([]);
+
+    useEffect(()=>{
+        if(user!== undefined){
+            getRepositories();
+        }
+    },[user])
 
     async function getRepositories(){
         await Api.get(`/users/${user}/repos`).then((res)=>setRepositories(res.data))
     }
 
-    useEffect(()=>{
-        if(user!== undefined){
-            getRepositories()
-        }
-    },[user])
   return (
     <div className='repositories-list'>
         {repositories.length >0 ? 
@@ -27,4 +28,4 @@ const Repositories = ({user}) => {
   )
 }
 
-export default Repositories
+export default Repositories;

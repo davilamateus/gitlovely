@@ -1,22 +1,22 @@
 import React, {useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom';
-import Api from '../../Api/Api';
+import Api from '../../api/Api';
 import Header from '../../components/header/Header';
 import Repositories from '../../components/user/repositories/RepositoriesList/RepositoriesList';
 import UserProfile from '../../components/user/UserProfile/UserProfile';
 
 const User = () => {
 
-    const params = useParams() 
+    const params = useParams() ;
     const userLogin = params.user;
     const [user,setUser] = useState([])
 
+    useEffect(()=>{getUser()},[])
 
     async function getUser (){
         await Api.get(`/users/${userLogin}`).then((res)=>{setUser(res.data)}).catch((err)=>console.log(err))
     }
 
-    useEffect(()=>{getUser()},[])
   return (
     <div>
         <div className="container">
@@ -28,4 +28,4 @@ const User = () => {
   )
 }
 
-export default User
+export default User;

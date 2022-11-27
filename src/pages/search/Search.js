@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import UsersList from '../../components/search/users/usersList/UsersList';
-import Api from '../../Api/Api';
+import Api from '../../api/Api';
 import Header from '../../components/header/Header';
 import './search.css';
 
@@ -14,8 +14,14 @@ const Search = () => {
   const [page, setPage] = useState(1)
   const [totalCount, setTotalCount] = useState(0);
   const [notFound, setNotFound] = useState(false);
+  
+  useEffect(() => { searchUsers() }, [page, search]);
+
+  useEffect(()=>{ setPage(1)},[search])
+
 
   async function searchUsers() {
+
 
     await Api.get(`/search/users?q=${search}&per_page=12&page=${page}`)
       .then((res) => {
@@ -28,24 +34,17 @@ const Search = () => {
       .catch((err) => { console.log(err) })
 
   }
-  useEffect(() => { searchUsers() }, [page, search]);
 
-
-  function changePage(n) {
-
-    if (page + (n) != 0) {
-      setPage(page + (n))
-    }
-  }
 
   //Only the first 1000 search results are available
+  function changePage(n) {
+      setPage(page + (n))
+  }
+
 
 
 
   return (
-
-
-
     <div className='container'>
       <Header />
 
